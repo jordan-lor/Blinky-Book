@@ -1,0 +1,47 @@
+<div class="book-content">
+
+
+
+    <p style="text-align:left; margin:20px 40px 0 40px; font-size:23px;">Blinky looks outside. The sun disappeared. It is windy and raining now. Glowbox is a smart device, but can make mistakes sometimes.</p>
+
+
+    <div class="book-content">
+        <div style="margin: 70px 40px;">
+            <h2 style="text-align:center; margin-bottom:30px; font-size:15px;">Smart devices can make mistakes. What can you do to check for mistakes made by smart devices?</h2>
+
+            <div style="max-width:400px; margin:0 auto;">
+                <textarea id="checkMistakesAnswer" placeholder="Type your thoughts here..." style="width:100%; height:50px; padding:15px; font-size:16px; border:2px solid #333; border-radius:10px; font-family: 'Stempel-Garamond-W01-Roman', serif; resize:vertical;"></textarea>
+
+                <div id="mistakesMessage" style="margin-top:15px; text-align:center; font-size:16px; color:#4CAF50; display:none;">
+                    ✓ Saved!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveMistakesAnswer() {
+            var answer = document.getElementById('checkMistakesAnswer').value;
+
+            if (answer.trim() === '') {
+                alert('Please type something before saving!');
+                return;
+            }
+
+            // Show success message
+            var message = document.getElementById('mistakesMessage');
+            message.style.display = 'block';
+
+            // Hide message after 3 seconds
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+
+            // Store the response
+            localStorage.setItem('checkMistakesAnswer', answer);
+
+            console.log('Response saved:', answer);
+        }
+    </script>
+
+    <span class="page-number">17</span>

@@ -1,0 +1,60 @@
+<div class="book-content">
+
+    <p style="text-align:left; margin:20px 40px 0 0; font-size:23px;">Blinky needs to get ready for school, but they did not know what to wear. Blinky turns on Glowbox for help.</p>
+
+    <div class="book-content">
+        <div style="margin: 70px 40px;">
+            <h2 style="text-align:center; margin-bottom:30px; font-size:24px;">What color is Glowbox?</h2>
+
+            <div style="display:flex; flex-direction:column; gap:15px; max-width:400px; margin:0 auto;">
+                <button onclick="checkColorAnswer(this, true)" style="padding:15px 20px; font-size:18px; border:2px solid #808080; border-radius:10px; background-color:#808080; color:white; cursor:pointer; transition:all 0.3s;">
+                    Gray
+                </button>
+
+                <button onclick="checkColorAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #ff8c00; border-radius:10px; background-color:#ff8c00; color:white; cursor:pointer; transition:all 0.3s;">
+                    Orange
+                </button>
+
+                <button onclick="checkColorAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #007bff; border-radius:10px; background-color:#007bff; color:white; cursor:pointer; transition:all 0.3s;">
+                    Blue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkColorAnswer(button, isCorrect) {
+            if (isCorrect) {
+                // Correct answer - flash green, then reset all buttons
+                var originalBg = button.style.backgroundColor;
+                var originalColor = button.style.color;
+                var originalBorder = button.style.borderColor;
+
+                button.style.backgroundColor = '#4CAF50'; // Green
+                button.style.borderColor = '#4CAF50';
+
+                // Reset after 1.5 seconds
+                setTimeout(function() {
+                    button.style.backgroundColor = originalBg;
+                    button.style.color = originalColor;
+                    button.style.borderColor = originalBorder;
+                }, 1500);
+            } else {
+                // Wrong answer - flash with red border, then reset
+                var originalBorder = button.style.borderColor;
+
+                button.style.borderColor = '#f44336'; // Red border
+                button.style.boxShadow = '0 0 10px #f44336';
+
+                // Reset after 1 second so they can try again
+                setTimeout(function() {
+                    button.style.borderColor = originalBorder;
+                    button.style.boxShadow = 'none';
+                }, 1000);
+            }
+        }
+    </script>
+
+
+</div>
+<span class="page-number">11</span>

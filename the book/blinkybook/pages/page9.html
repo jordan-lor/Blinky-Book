@@ -1,0 +1,56 @@
+<div class="book-content">
+
+	<p style="text-align:left; margin:20px 40px 0 0; font-size:23px;">Blinky wakes up with the sun shining on their face. They were excited to start a new day.</p>
+
+	<div class="book-content">
+		<div style="margin: 70px 40px;">
+			<h2 style="text-align:center; margin-bottom:30px; font-size:24px;">What emotion is Blinky feeling?</h2>
+
+			<div style="display:flex; flex-direction:column; gap:15px; max-width:400px; margin:0 auto;">
+				<button onclick="checkAnswer(this, true)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+					Happy
+				</button>
+
+				<button onclick="checkAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+					Sad
+				</button>
+
+				<button onclick="checkAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+					Sick
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function checkAnswer(button, isCorrect) {
+			// Light up the clicked button
+			if (isCorrect) {
+				// Correct answer - turn green and disable all buttons
+				var buttons = button.parentElement.querySelectorAll('button');
+				buttons.forEach(function(btn) {
+					btn.disabled = true;
+					btn.style.cursor = 'not-allowed';
+				});
+
+				button.style.backgroundColor = '#4CAF50'; // Green
+				button.style.color = 'white';
+				button.style.borderColor = '#4CAF50';
+			} else {
+				// Wrong answer - turn red temporarily, then reset
+				button.style.backgroundColor = '#f44336'; // Red
+				button.style.color = 'white';
+				button.style.borderColor = '#f44336';
+
+				// Reset button after 1 second so they can try again
+				setTimeout(function() {
+					button.style.backgroundColor = 'white';
+					button.style.color = 'black';
+					button.style.borderColor = '#333';
+				}, 1000);
+			}
+		}
+	</script>
+
+</div>
+<span class="page-number">9</span>

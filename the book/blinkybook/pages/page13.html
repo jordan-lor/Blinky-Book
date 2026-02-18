@@ -1,0 +1,53 @@
+<div class="book-content">
+    <p style="text-align:left; margin:20px 40px 0 40px; font-size:23px;">Blinky asks Glowbox what they should wear. "Monday was sunny with 80 degrees temperature. It is sunny now, but in the afternoon it will be windy with thunder clouds," responds Glowbox.</p>
+
+    <div style="margin: 30px 40px;">
+        <h2 style="text-align:center; margin-bottom:30px; font-size:24px;">What will the weather later today be?</h2>
+
+        <div style="display:flex; flex-direction:column; gap:15px; max-width:400px; margin:0 auto;">
+            <button onclick="checkWeatherAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+                ❄️ Snowy
+            </button>
+
+            <button onclick="checkWeatherAnswer(this, true)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+                🌧️ Rainy
+            </button>
+
+            <button onclick="checkWeatherAnswer(this, false)" style="padding:15px 20px; font-size:18px; border:2px solid #333; border-radius:10px; background-color:white; cursor:pointer; transition:all 0.3s;">
+                ☀️ Sunny
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkWeatherAnswer(button, isCorrect) {
+        if (isCorrect) {
+            // Correct answer - flash green, then reset
+            button.style.backgroundColor = '#4CAF50'; // Green
+            button.style.color = 'white';
+            button.style.borderColor = '#4CAF50';
+
+            // Reset after 1.5 seconds so they can pick again
+            setTimeout(function() {
+                button.style.backgroundColor = 'white';
+                button.style.color = 'black';
+                button.style.borderColor = '#333';
+            }, 1500);
+        } else {
+            // Wrong answer - flash red, then reset
+            button.style.backgroundColor = '#f44336'; // Red
+            button.style.color = 'white';
+            button.style.borderColor = '#f44336';
+
+            // Reset after 1 second so they can try again
+            setTimeout(function() {
+                button.style.backgroundColor = 'white';
+                button.style.color = 'black';
+                button.style.borderColor = '#333';
+            }, 1000);
+        }
+    }
+</script>
+
+<span class="page-number">13</span>
